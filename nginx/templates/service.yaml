@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+    purpose: helm
+  ports:
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: {{ .Values.configmap.port }} #target-port
